@@ -1,11 +1,11 @@
 iOSAppTemplate
 ==============
 
-A very useful template for iOS applications.
+A functional and useful template for iOS applications.
 
 Includes:
 - Animated side menu.
-- Todo list integrated Parse.com.
+- Todo list integrated with Parse.com.
 - Map with MKMapKit.
 - Embed youtube video.
 

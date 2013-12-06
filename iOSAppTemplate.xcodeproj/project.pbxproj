@@ -36,6 +36,7 @@
 		532ECE6C18525E2C005421BC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532ECE6B18525E2C005421BC /* MapKit.framework */; };
 		532ECE70185276EC005421BC /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532ECE6F185276EC005421BC /* VideoViewController.m */; };
 		532ECE7418527B77005421BC /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532ECE7318527B77005421BC /* AboutViewController.m */; };
+		532ECE761852961D005421BC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 532ECE751852961D005421BC /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		532ECE6F185276EC005421BC /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		532ECE7218527B77005421BC /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		532ECE7318527B77005421BC /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		532ECE751852961D005421BC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 		532ECDFA1850AD1A005421BC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				532ECE751852961D005421BC /* README.md */,
 				532ECDFB1850AD1A005421BC /* Template 1-Info.plist */,
 				532ECDFC1850AD1A005421BC /* InfoPlist.strings */,
 				532ECDFF1850AD1A005421BC /* main.m */,
@@ -321,6 +324,7 @@
 			files = (
 				532ECE0C1850AD1B005421BC /* Images.xcassets in Resources */,
 				532ECDFE1850AD1A005421BC /* InfoPlist.strings in Resources */,
+				532ECE761852961D005421BC /* README.md in Resources */,
 				532ECE071850AD1B005421BC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
