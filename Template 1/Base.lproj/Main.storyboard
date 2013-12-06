@@ -104,12 +104,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tFq-Vd-kHB">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tFq-Vd-kHB">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tFq-Vd-kHB" firstAttribute="leading" secondItem="LL1-x0-HDQ" secondAttribute="leading" id="BWV-84-Vp5"/>
+                            <constraint firstAttribute="trailing" secondItem="tFq-Vd-kHB" secondAttribute="trailing" id="WTl-vd-Vua"/>
+                            <constraint firstItem="tFq-Vd-kHB" firstAttribute="top" secondItem="LL1-x0-HDQ" secondAttribute="top" id="Z5R-wZ-pje"/>
+                            <constraint firstItem="amX-8E-XRJ" firstAttribute="top" secondItem="tFq-Vd-kHB" secondAttribute="bottom" id="jxp-Oh-z55"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="tFq-Vd-kHB" id="icX-8L-T9x"/>
