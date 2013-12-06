@@ -6,7 +6,7 @@ A functional and useful template for iOS applications.
 Includes:
 - Animated side menu.
 - Todo list integrated with Parse.com.
-- Map with MKMapKit.
+- Map with MapKit.
 - Embed youtube video.
 
 [Check the video!](http://www.youtube.com/watch?v=OWnbaRlqfto)
