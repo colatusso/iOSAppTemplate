@@ -9,5 +9,6 @@ Includes:
 - Map with MKMapKit.
 - Embed youtube video.
 
-![alt tag](http://www.colatusso.com.br/images/iOSAppTemplate.gif)
+[Check the video!](http://www.youtube.com/watch?v=OWnbaRlqfto)
 
+![app](http://www.colatusso.com.br/images/app.png)
