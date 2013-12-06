@@ -1,0 +1,123 @@
+//
+//  ListViewController.m
+//  Template 1
+//
+//  Created by Rafael on 05/12/13.
+//  Copyright (c) 2013 Rafael Colatusso. All rights reserved.
+//
+
+#import "ListViewController.h"
+#import "MenuTableViewController.h"
+
+@interface ListViewController ()
+
+@end
+
+@implementation ListViewController
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleUpdatedData:)
+                                                 name:@"ToDoDataUpdated"
+                                               object:nil];
+    
+    [self reloadDataFromParse];
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self reloadDataFromParse];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [self.toDoArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    // Configure the cell...
+    cell.textLabel.text = [[self.toDoArray objectAtIndex:indexPath.row] objectForKey:@"text"];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    PFObject *object = [self.toDoArray objectAtIndex:indexPath.row];
+    [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+
+    [UIView animateWithDuration:1.0f animations:^{
+        cell.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self reloadDataFromParse];
+        }];
+
+    }];
+    cell.selected = NO;
+    
+}
+
+#pragma mark -
+#pragma mark Helper methods
+
+- (void)reloadDataFromParse {
+    self.toDoArray = [NSArray array];
+    self.query = [PFQuery queryWithClassName:@"ToDoList"];
+    [self.query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error) {
+            self.toDoArray = objects;
+            [self.tableView reloadData];
+        }
+    }];
+}
+
+- (void)removeDataFromParse {
+    self.toDoArray = [NSArray array];
+    self.query = [PFQuery queryWithClassName:@"ToDoList"];
+    [self.query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error) {
+            self.toDoArray = objects;
+            [self.tableView reloadData];
+        }
+    }];
+}
+
+-(void)handleUpdatedData:(NSNotification *)notification {
+    [self reloadDataFromParse];
+}
+
+@end
