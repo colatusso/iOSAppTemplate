@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     
-    self.menuOptions = [NSArray arrayWithObjects:@"ToDo list", @"Location", @"Video", @"About", nil];
+    self.menuOptions = [NSArray arrayWithObjects:@"Todo list", @"Location", @"Video", @"About", nil];
     self.tableView.backgroundColor = [UIColor darkGrayColor];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleUpdatedData:)
@@ -114,6 +114,12 @@
         case 1:
             [self initLocationViewController];
             break;
+        case 2:
+            [self initVideoViewController];
+            break;
+        case 3:
+            [self initAboutViewController];
+            break;
         default:
             break;
     }
@@ -123,7 +129,7 @@
 #pragma mark Helper methods
 
 - (void)instantiateControllers {
-    // ToDo methods
+    // Todo
     self.listViewController.view.tag = 999;
     self.listViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
                                instantiateViewControllerWithIdentifier:@"ListViewController"];
@@ -133,10 +139,19 @@
         self.view.frame = CGRectMake(-(self.screenWidth * 0.8), 0, (self.screenWidth * 0.8) + self.screenWidth, self.screenHeight);
     }];
     
-    // Location methods
+    // Location
     self.locationViewController.view.tag = 999;
     self.locationViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
                                    instantiateViewControllerWithIdentifier:@"LocationViewController"];
+    // Video
+    self.videoViewController.view.tag = 999;
+    self.videoViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+                                   instantiateViewControllerWithIdentifier:@"VideoViewController"];
+    // About
+    self.aboutViewController.view.tag = 999;
+    self.aboutViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+                                instantiateViewControllerWithIdentifier:@"AboutViewController"];
+    
 }
 
 - (void)initListViewController {
@@ -160,6 +175,26 @@
     self.locationViewController.view.tag = 999;
     self.locationViewController.view.frame = CGRectMake((self.screenWidth * 0.8), 0, self.screenWidth, self.screenHeight);
     [self.view addSubview:self.locationViewController.view];
+    [UIView animateWithDuration:0.5f animations:^{
+        self.view.frame = CGRectMake(-(self.screenWidth * 0.8), 0, (self.screenWidth * 0.8) + self.screenWidth, self.screenHeight);
+    }];
+}
+
+- (void)initVideoViewController {
+    // load video view controller
+    self.videoViewController.view.tag = 999;
+    self.videoViewController.view.frame = CGRectMake((self.screenWidth * 0.8), 0, self.screenWidth, self.screenHeight);
+    [self.view addSubview:self.videoViewController.view];
+    [UIView animateWithDuration:0.5f animations:^{
+        self.view.frame = CGRectMake(-(self.screenWidth * 0.8), 0, (self.screenWidth * 0.8) + self.screenWidth, self.screenHeight);
+    }];
+}
+
+- (void)initAboutViewController {
+    // load location view controller
+    self.aboutViewController.view.tag = 999;
+    self.aboutViewController.view.frame = CGRectMake((self.screenWidth * 0.8), 0, self.screenWidth, self.screenHeight);
+    [self.view addSubview:self.aboutViewController.view];
     [UIView animateWithDuration:0.5f animations:^{
         self.view.frame = CGRectMake(-(self.screenWidth * 0.8), 0, (self.screenWidth * 0.8) + self.screenWidth, self.screenHeight);
     }];

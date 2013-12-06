@@ -55,7 +55,7 @@
         <scene sceneID="kM1-dQ-Cg0">
             <objects>
                 <tableViewController storyboardIdentifier="ListViewController" id="sFP-Ga-gc0" customClass="ListViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="zhd-3m-bBV">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="zhd-3m-bBV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -104,24 +104,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXY-9u-10P">
-                                <rect key="frame" x="120" y="191" width="80" height="21"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tFq-Vd-kHB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="tFq-Vd-kHB" id="icX-8L-T9x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l2T-rY-aS8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="636" y="725"/>
+        </scene>
+        <!--Video View Controller-->
+        <scene sceneID="K5N-oY-sNG">
+            <objects>
+                <viewController storyboardIdentifier="VideoViewController" id="5g2-vr-RBs" customClass="VideoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IDV-9C-04c"/>
+                        <viewControllerLayoutGuide type="bottom" id="xOz-wt-x9k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SjH-tc-86o">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z5K-MC-nej">
+                                <rect key="frame" x="0.0" y="80" width="320" height="320"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Z5K-MC-nej" firstAttribute="top" secondItem="IDV-9C-04c" secondAttribute="bottom" constant="60" id="GzE-Wh-fIV"/>
+                            <constraint firstItem="Z5K-MC-nej" firstAttribute="leading" secondItem="SjH-tc-86o" secondAttribute="leading" id="I6G-xU-Q7f"/>
+                            <constraint firstAttribute="trailing" secondItem="Z5K-MC-nej" secondAttribute="trailing" id="RYh-bm-ZfA"/>
+                            <constraint firstItem="xOz-wt-x9k" firstAttribute="top" secondItem="Z5K-MC-nej" secondAttribute="bottom" constant="80" id="TAO-Ak-HWJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="youTubeWebView" destination="Z5K-MC-nej" id="oUd-nF-NzR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mrH-J5-xq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="1339"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="goi-7R-LWs">
+            <objects>
+                <viewController storyboardIdentifier="AboutViewController" id="EkJ-Rr-EZG" customClass="AboutViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j76-jD-bpP"/>
+                        <viewControllerLayoutGuide type="bottom" id="URw-oS-Vur"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bLC-uK-3QP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your info here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxN-En-ngq">
+                                <rect key="frame" x="100" y="107" width="107" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="contact: colatusso@gmail.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBq-dm-geZ">
+                                <rect key="frame" x="40" y="136" width="240" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="zXY-9u-10P" firstAttribute="top" secondItem="mCC-uS-ljL" secondAttribute="bottom" constant="171" id="6j2-z2-l3Q"/>
-                            <constraint firstAttribute="trailing" secondItem="zXY-9u-10P" secondAttribute="trailing" constant="120" id="Gpk-UO-QTv"/>
-                            <constraint firstItem="zXY-9u-10P" firstAttribute="leading" secondItem="LL1-x0-HDQ" secondAttribute="leading" constant="120" id="MXb-5e-itX"/>
-                        </constraints>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l2T-rY-aS8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ifv-Zb-BU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="636" y="725"/>
+            <point key="canvasLocation" x="644" y="1951"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3ph-yR-ORp">

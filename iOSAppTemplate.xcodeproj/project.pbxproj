@@ -33,6 +33,9 @@
 		532ECE5518518905005421BC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532ECE5418518905005421BC /* StoreKit.framework */; };
 		532ECE571851890C005421BC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532ECE561851890C005421BC /* SystemConfiguration.framework */; };
 		532ECE6A18520A84005421BC /* AddToDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532ECE6918520A84005421BC /* AddToDoViewController.m */; };
+		532ECE6C18525E2C005421BC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532ECE6B18525E2C005421BC /* MapKit.framework */; };
+		532ECE70185276EC005421BC /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532ECE6F185276EC005421BC /* VideoViewController.m */; };
+		532ECE7418527B77005421BC /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532ECE7318527B77005421BC /* AboutViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,11 @@
 		532ECE561851890C005421BC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		532ECE6818520A84005421BC /* AddToDoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToDoViewController.h; sourceTree = "<group>"; };
 		532ECE6918520A84005421BC /* AddToDoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToDoViewController.m; sourceTree = "<group>"; };
+		532ECE6B18525E2C005421BC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		532ECE6E185276EC005421BC /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		532ECE6F185276EC005421BC /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		532ECE7218527B77005421BC /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		532ECE7318527B77005421BC /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				532ECE6C18525E2C005421BC /* MapKit.framework in Frameworks */,
 				532ECE571851890C005421BC /* SystemConfiguration.framework in Frameworks */,
 				532ECE5518518905005421BC /* StoreKit.framework in Frameworks */,
 				532ECE53185188FE005421BC /* Security.framework in Frameworks */,
@@ -137,6 +146,7 @@
 		532ECDF21850AD1A005421BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				532ECE6B18525E2C005421BC /* MapKit.framework */,
 				532ECE561851890C005421BC /* SystemConfiguration.framework */,
 				532ECE5418518905005421BC /* StoreKit.framework */,
 				532ECE52185188FE005421BC /* Security.framework */,
@@ -158,6 +168,7 @@
 		532ECDF91850AD1A005421BC /* iOSAppTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				532ECE7118527B6B005421BC /* About */,
 				532ECE021850AD1A005421BC /* AppDelegate.h */,
 				532ECE031850AD1A005421BC /* AppDelegate.m */,
 				532ECE0B1850AD1B005421BC /* Images.xcassets */,
@@ -166,6 +177,7 @@
 				532ECE43185185D9005421BC /* Menu */,
 				532ECDFA1850AD1A005421BC /* Supporting Files */,
 				532ECE3F185183F5005421BC /* ToDoList */,
+				532ECE6D185276C9005421BC /* Video */,
 			);
 			name = iOSAppTemplate;
 			path = "Template 1";
@@ -211,6 +223,24 @@
 				532ECE34185102A5005421BC /* MenuTableViewController.m */,
 			);
 			name = Menu;
+			sourceTree = "<group>";
+		};
+		532ECE6D185276C9005421BC /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				532ECE6E185276EC005421BC /* VideoViewController.h */,
+				532ECE6F185276EC005421BC /* VideoViewController.m */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
+		532ECE7118527B6B005421BC /* About */ = {
+			isa = PBXGroup;
+			children = (
+				532ECE7218527B77005421BC /* AboutViewController.h */,
+				532ECE7318527B77005421BC /* AboutViewController.m */,
+			);
+			name = About;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,12 +339,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				532ECE7418527B77005421BC /* AboutViewController.m in Sources */,
 				532ECE6A18520A84005421BC /* AddToDoViewController.m in Sources */,
 				532ECE041850AD1A005421BC /* AppDelegate.m in Sources */,
 				532ECE3E18515342005421BC /* LocationViewController.m in Sources */,
 				532ECE3B18514987005421BC /* ListViewController.m in Sources */,
 				532ECE321851023D005421BC /* CustomMenuCell.m in Sources */,
 				532ECE35185102A5005421BC /* MenuTableViewController.m in Sources */,
+				532ECE70185276EC005421BC /* VideoViewController.m in Sources */,
 				532ECE001850AD1A005421BC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

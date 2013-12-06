@@ -10,6 +10,8 @@
 #import "CustomMenuCell.h"
 #import "ListViewController.h"
 #import "LocationViewController.h"
+#import "VideoViewController.h"
+#import "AboutViewController.h"
 #import "AddToDoViewController.h"
 
 @interface MenuTableViewController : UITableViewController
@@ -18,6 +20,8 @@
 @property (assign, nonatomic) CGFloat screenHeight;
 @property (strong, nonatomic) ListViewController *listViewController;
 @property (strong, nonatomic) LocationViewController *locationViewController;
+@property (strong, nonatomic) VideoViewController *videoViewController;
+@property (strong, nonatomic) AboutViewController *aboutViewController;
 @property (strong, nonatomic) AddToDoViewController *addToDoViewController;
 
 - (IBAction)showMenu:(id)sender;
