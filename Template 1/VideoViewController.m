@@ -18,9 +18,10 @@
 {
     [super viewDidLoad];
     
+    // based on http://stackoverflow.com/questions/18873203/embed-youtube-video-in-ios-app
     self.youTubeWebView.allowsInlineMediaPlayback=YES;
     
-    NSString *linkObj=@"http://www.youtube.com/v/6FkWrt0b50I";
+    NSString *linkObj=@"http://www.youtube.com/v/6FkWrt0b50I"; // should be "http://www.youtube.com/v/YOU_TUBE_VIDEO_ID"
     NSLog(@"linkObj1_________________%@",linkObj);
     NSString *embedHTML = @"\
     <html><head>\

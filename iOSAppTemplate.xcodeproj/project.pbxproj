@@ -476,7 +476,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Template 1/iOSAppTemplate-Prefix.pch";
 				INFOPLIST_FILE = "Template 1/Template 1-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = iOSAppTemplate;
 				WRAPPER_EXTENSION = app;
 			};
@@ -494,7 +494,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Template 1/iOSAppTemplate-Prefix.pch";
 				INFOPLIST_FILE = "Template 1/Template 1-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = iOSAppTemplate;
 				WRAPPER_EXTENSION = app;
 			};

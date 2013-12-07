@@ -18,7 +18,6 @@
 {
     [super viewDidLoad];
     self.textField.delegate = self;
-	// Do any additional setup after loading the view.
 }
 
 #pragma mark -
@@ -26,11 +25,9 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if ([string  isEqual: @""]) {
-        return YES;
-    } else if ([textField.text length] > 24){
-        return NO;
-    }
+    // max todo text length
+    if ([string  isEqual: @""]) return YES; // to keep backspace working
+    else if ([textField.text length] > 33) return NO;
     else return YES;
 }
 
@@ -43,6 +40,7 @@
 #pragma Helper methods
 
 - (IBAction)saveOnParse:(id)sender {
+    // save the new todo on parse and notificate
     if ([self.textField.text length] > 0) {
         self.todoObject = [PFObject objectWithClassName:@"ToDoList"];
         self.todoObject[@"text"] = self.textField.text;

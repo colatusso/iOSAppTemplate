@@ -14,21 +14,13 @@
 
 @implementation MenuTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.menuOptions = [NSArray arrayWithObjects:@"Todo list", @"Location", @"Video", @"About", nil];
+    self.menuOptions = [NSArray arrayWithObjects:@"Todo list", @"Location", @"Video", @"About", nil]; // menu options strings
     self.tableView.backgroundColor = [UIColor darkGrayColor];
+    // watch for new rows added via AddToDoViewController
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleUpdatedData:)
                                                  name:@"ToDoDataUpdated"
@@ -50,12 +42,6 @@
     
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -72,15 +58,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // example using a custom UITableViewCell
     static NSString *CellIdentifier = @"MenuCell";
-    
     CustomMenuCell *customCell = (CustomMenuCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!customCell) {
         customCell = [[CustomMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
     customCell.info.text = [self.menuOptions objectAtIndex:indexPath.row];
 
     switch (indexPath.row) {
@@ -103,6 +88,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    // controls your menu selection but first remove what is currently loaded
     [self removeSubviews];
     
     self.navigationItem.rightBarButtonItem = nil;
@@ -138,6 +124,12 @@
     [UIView animateWithDuration:0.5f animations:^{
         self.view.frame = CGRectMake(-(self.screenWidth * 0.8), 0, (self.screenWidth * 0.8) + self.screenWidth, self.screenHeight);
     }];
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                               target:self
+                                                                               action:@selector(addToDo)];
+    [addButton setTintColor:[UIColor blackColor]];
+    self.navigationItem.rightBarButtonItem = addButton;
     
     // Location
     self.locationViewController.view.tag = 999;
@@ -191,7 +183,7 @@
 }
 
 - (void)initAboutViewController {
-    // load location view controller
+    // load about view controller
     self.aboutViewController.view.tag = 999;
     self.aboutViewController.view.frame = CGRectMake((self.screenWidth * 0.8), 0, self.screenWidth, self.screenHeight);
     [self.view addSubview:self.aboutViewController.view];
@@ -201,6 +193,7 @@
 }
 
 - (void)addToDo {
+    // shows the view for adding new todos
     self.navigationItem.rightBarButtonItem = nil;
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                                                                target:self
@@ -219,7 +212,7 @@
 }
 
 - (void)removeSubviews {
-    // remove the current subview loaded and the right bar buttom
+    // remove the current subview loaded
     for (UIView *view in [self.view subviews]) {
         if (view.tag == 999) {
             [view removeFromSuperview];
@@ -228,6 +221,7 @@
 }
 
 - (void)cancelToDoEditing {
+    // called when you add a new line or touches the cancel button, remove the view with an animation
     [UIView animateWithDuration:0.5f animations:^{
         self.addToDoViewController.view.frame = CGRectMake(self.screenWidth * 0.8, self.screenHeight, self.screenWidth, self.screenHeight);
     } completion:^(BOOL finished) {
@@ -243,10 +237,12 @@
 }
 
 -(void)handleUpdatedData:(NSNotification *)notification {
+    // remove the view after you add a new line
     [self cancelToDoEditing];
 }
 
 - (IBAction)showMenu:(id)sender {
+    // controls the side menu with animations
     if (self.view.frame.origin.x < 0) {
         [UIView animateWithDuration:0.5f animations:^{
             self.view.frame = CGRectMake(0, 0, (self.screenWidth * 0.8) + self.screenWidth, self.screenHeight);

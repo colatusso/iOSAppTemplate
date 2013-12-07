@@ -23,18 +23,12 @@
     self.mapView.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark -
 #pragma MKMapKit Delegate
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation: (MKUserLocation *)userLocation
 {
-    // zoom and center
+    // zoom and center on user location
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (userLocation.location.coordinate, 8000, 8000);
     [self.mapView setRegion:region animated:NO];
     self.mapView.centerCoordinate = userLocation.location.coordinate;

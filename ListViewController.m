@@ -27,6 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // listen for new rows added via AddToDoViewController
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleUpdatedData:)
                                                  name:@"ToDoDataUpdated"
@@ -38,12 +40,6 @@
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self reloadDataFromParse];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -69,22 +65,21 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
     cell.textLabel.text = [[self.toDoArray objectAtIndex:indexPath.row] objectForKey:@"text"];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // delete the row from parse and fade out the cell
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     PFObject *object = [self.toDoArray objectAtIndex:indexPath.row];
     [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-
-    [UIView animateWithDuration:1.0f animations:^{
-        cell.alpha = 0;
-    } completion:^(BOOL finished) {
-        [self reloadDataFromParse];
-        }];
+        [UIView animateWithDuration:1.0f animations:^{
+            cell.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self reloadDataFromParse];
+            }];
 
     }];
     cell.selected = NO;
@@ -95,17 +90,7 @@
 #pragma mark Helper methods
 
 - (void)reloadDataFromParse {
-    self.toDoArray = [NSArray array];
-    self.query = [PFQuery queryWithClassName:@"ToDoList"];
-    [self.query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if(!error) {
-            self.toDoArray = objects;
-            [self.tableView reloadData];
-        }
-    }];
-}
-
-- (void)removeDataFromParse {
+    // retrieve all objects from ToDoList class at Parse
     self.toDoArray = [NSArray array];
     self.query = [PFQuery queryWithClassName:@"ToDoList"];
     [self.query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -117,6 +102,7 @@
 }
 
 -(void)handleUpdatedData:(NSNotification *)notification {
+    // when notificated reload the data
     [self reloadDataFromParse];
 }
 
