@@ -1,10 +1,7 @@
 //
-//  DataStore.h
-//  RareBuys
-//
-//  Created by Brice Wilson on 10/15/13.
-//  Copyright (c) 2013 Brice Wilson. All rights reserved.
-//
+//  Created by Rafael on 01/18/14.
+//  based on Brice's CoreData training at pluralsight
+
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>

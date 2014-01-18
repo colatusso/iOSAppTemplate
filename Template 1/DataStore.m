@@ -1,17 +1,12 @@
 //
-//  DataStore.m
-//  RareBuys
-//
-//  Created by Brice Wilson on 10/15/13.
-//  Copyright (c) 2013 Brice Wilson. All rights reserved.
-//
+//  Created by Rafael on 01/18/14.
+//  based on Brice's CoreData training at pluralsight
 
 #import "DataStore.h"
-
 @implementation DataStore
 
-+(id)sharedInstance {
-    
++ (id)sharedInstance {
+    // this prevents duplicated instances and create a shared one
     static DataStore *sharedDataStore = nil;
     static dispatch_once_t onceToken;
     
@@ -26,7 +21,7 @@
 {
     self = [super init];
     if (self) {
-        
+        // grabbing all the models in the project
         model = [NSManagedObjectModel mergedModelFromBundles:nil];
         NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
 
@@ -35,6 +30,7 @@
         NSURL *documentPath = [directories objectAtIndex:0];
         NSURL *dataStoreURL = [documentPath URLByAppendingPathComponent:@"todo.sqlite"];
         
+        // creating our sqlite database
         NSError *error = nil;
         [coordinator addPersistentStoreWithType:NSSQLiteStoreType
                           configuration:nil
@@ -49,9 +45,8 @@
 }
 
 - (void)save {
-    
-    NSError *error = nil;
-    [_storeContext save:&error];
+    // save the new data
+    [_storeContext save:nil];
 }
 
 @end

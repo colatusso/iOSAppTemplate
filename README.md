@@ -22,4 +22,5 @@ The template is released under the MIT license.
 
 ## Credits
 Developed by Rafael Colatusso - @colatusso.
+
 Icons by [Piotr Kwiatkowski](http://ikons.piotrkwiatkowski.co.uk/).

@@ -107,12 +107,17 @@
 #pragma mark Helper methods
 
 - (void)reloadDataFromParse {
-    // let´s sync the local data with parse
+    // The sync work in both ways, add or remove an object at parse's backend and
+    // the change will reflect locally, if you add or remove in the app
+    // the change will reflect at parse's backend.
+    // It works with insert and delete, I'm already working on the "update".
+    
+    // let´s start by syncing the local data with parse
     self.toDoArray = [NSArray array];
     DataStore *dataStore = [DataStore sharedInstance];
     NSManagedObjectContext *context = [dataStore storeContext];
 
-    // load the locally data first
+    // load the locally data first and displaying it
     NSFetchRequest *newRequest = [NSFetchRequest fetchRequestWithEntityName:@"ToDoList"];
     self.toDoArray = [context executeFetchRequest:newRequest error:nil];
     
