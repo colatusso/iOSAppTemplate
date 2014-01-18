@@ -8,7 +8,7 @@ Features:
 - Todo list integrated with Parse.com.
 - Map with MapKit.
 - Embed youtube video.
-- Parse offline and sync support with CoreData.
+- Parse offline and sync support with CoreData (insert and delete, already working on update!).
 
 Using: Storyboards, animations, CoreData, TableViews, custom and normal TableViewCells, NSNotification, MapKit,
 Parse framework, etc.
@@ -21,5 +21,5 @@ Parse framework, etc.
 The template is released under the MIT license.
 
 ## Credits
-Developed by Rafael Colatusso - @colatusso
+Developed by Rafael Colatusso - @colatusso.
 Icons by [Piotr Kwiatkowski](http://ikons.piotrkwiatkowski.co.uk/).
