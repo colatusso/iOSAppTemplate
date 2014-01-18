@@ -39,7 +39,6 @@
 
     // instantiate the controllers 
     [self instantiateControllers];
-    
 }
 
 #pragma mark - Table view data source
@@ -124,7 +123,7 @@
     [UIView animateWithDuration:0.5f animations:^{
         self.view.frame = CGRectMake(-(self.screenWidth * 0.8), 0, (self.screenWidth * 0.8) + self.screenWidth, self.screenHeight);
     }];
-    
+
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                target:self
                                                                                action:@selector(addToDo)];

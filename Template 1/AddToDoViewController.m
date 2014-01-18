@@ -7,6 +7,8 @@
 //
 
 #import "AddToDoViewController.h"
+#import "ToDoList.h"
+#import "DataStore.h"
 
 @interface AddToDoViewController ()
 
@@ -47,7 +49,12 @@
         [self.todoObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!error) {
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"ToDoDataUpdated"
-                                                                    object:self];   
+                                                                    object:self];
+            }
+            
+            else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Unable to connect to parse" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
             }
         }];
     }
